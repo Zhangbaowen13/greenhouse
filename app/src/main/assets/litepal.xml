@@ -1,0 +1,9 @@
+<litepal>
+    <dbname value="geeenhouse"/>
+    <version value="1"/>
+    <list>
+        <mapping class="com.example.pengpeng.db.City"/>
+        <mapping class="com.example.pengpeng.db.Province"/>
+        <mapping class="com.example.pengpeng.db.County"/>
+    </list>
+</litepal>

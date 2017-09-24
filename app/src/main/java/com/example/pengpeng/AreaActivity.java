@@ -17,13 +17,13 @@ public class AreaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_area);
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
         String weatherString=prefs.getString("weather",null);
-      if(weatherString!=null){
+  /*    if(weatherString!=null){
             Weather weather= Utility.handleWeatherResponse(weatherString);
             String huancunId=weather.basic.weatherId;
             Intent intent=new Intent(this,WeatherActivity.class);
             intent.putExtra("weather_id",huancunId);
             startActivity(intent);
             finish();
-        }
+        }*/
     }
 }

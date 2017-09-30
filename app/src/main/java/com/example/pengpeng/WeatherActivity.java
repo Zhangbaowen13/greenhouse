@@ -170,12 +170,18 @@ public class WeatherActivity extends AppCompatActivity {
     private void showWeatherInfo(Weather weather){
         if(weather!=null&&"ok".equals(weather.status)){
         String cityName=weather.basic.cityName;
-        String updateTime=weather.basic.update.updateTime.split("")[1];
+
+            String time1=weather.basic.update.updateTime.split("")[12];
+            String time2=weather.basic.update.updateTime.split("")[13];
+            String time3=weather.basic.update.updateTime.split("")[14];
+            String time4=weather.basic.update.updateTime.split("")[15];
+            String time5=weather.basic.update.updateTime.split("")[16];
+            String updateTime=time1+time2+time3+time4+time5;
         String degree=weather.now.temperature+"℃";
         String weatherInfo=weather.now.more.info;
 
         titleCity.setText(cityName);
-        titleUpdateTime.setText(updateTime);
+        //titleUpdateTime.setText(updateTime);
         degreeText.setText(degree);
         weatherInfoText.setText(weatherInfo);
         forecastLayout.removeAllViews();

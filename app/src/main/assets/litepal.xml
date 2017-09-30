@@ -1,9 +1,21 @@
 <litepal>
     <dbname value="geeenhouse"/>
-    <version value="1"/>
+    <version value="8"/>
     <list>
         <mapping class="com.example.pengpeng.db.City"/>
         <mapping class="com.example.pengpeng.db.Province"/>
         <mapping class="com.example.pengpeng.db.County"/>
+        <mapping class="com.example.pengpeng.db.DataNow"/>
+        <mapping class="com.example.pengpeng.db.Greenhouse"/>
+        <mapping class="com.example.pengpeng.db.Shebei"/>
+        <mapping class="com.example.pengpeng.db.User"/>
+        <mapping class="com.example.pengpeng.db.UserGroup"/>
+        <mapping class="com.example.pengpeng.db.Eryanghuatan"/>
+        <mapping class="com.example.pengpeng.db.Fangan"/>
+        <mapping class="com.example.pengpeng.db.Guangzhao"/>
+        <mapping class="com.example.pengpeng.db.Huanshi"/>
+        <mapping class="com.example.pengpeng.db.Huanwen"/>
+        <mapping class="com.example.pengpeng.db.Tuwen"/>
+        <mapping class="com.example.pengpeng.db.Tushi"/>
     </list>
 </litepal>

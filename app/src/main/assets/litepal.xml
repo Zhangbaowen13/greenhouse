@@ -1,6 +1,6 @@
 <litepal>
     <dbname value="geeenhouse"/>
-    <version value="8"/>
+    <version value="12"/>
     <list>
         <mapping class="com.example.pengpeng.db.City"/>
         <mapping class="com.example.pengpeng.db.Province"/>
@@ -10,12 +10,7 @@
         <mapping class="com.example.pengpeng.db.Shebei"/>
         <mapping class="com.example.pengpeng.db.User"/>
         <mapping class="com.example.pengpeng.db.UserGroup"/>
-        <mapping class="com.example.pengpeng.db.Eryanghuatan"/>
-        <mapping class="com.example.pengpeng.db.Fangan"/>
-        <mapping class="com.example.pengpeng.db.Guangzhao"/>
-        <mapping class="com.example.pengpeng.db.Huanshi"/>
-        <mapping class="com.example.pengpeng.db.Huanwen"/>
-        <mapping class="com.example.pengpeng.db.Tuwen"/>
-        <mapping class="com.example.pengpeng.db.Tushi"/>
+        <mapping class="com.example.pengpeng.db.Xueyuan"/>
+        <mapping class="com.example.pengpeng.db.Zhuanye"/>
     </list>
 </litepal>

@@ -1,5 +1,7 @@
 package com.example.pengpeng;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.pengpeng.db.DataNow;
+import com.example.pengpeng.db.Datashow;
+import com.example.pengpeng.db.Greenhouse;
+import com.example.pengpeng.db.UserGroup;
+
+import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +26,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/9/26 0026.
  */
-
+@SuppressLint("NewApi")
 public class ListFragment extends Fragment {
     private boolean isTwoPane;
     private LinearLayout greenhouse_item_bc;
@@ -29,6 +36,12 @@ public class ListFragment extends Fragment {
     private TextView eryanghuatan_tv;
     private TextView huanshi_tv;
     private TextView guangzhao_tv;
+    private  List<Greenhouse> greenhouseList;
+    private List<UserGroup> userGroupList;
+    private List<DataNow>dataNowList;
+    private List<Datashow> datashows;
+    private List<String> dataList=new ArrayList<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState){
         //初始化控件
@@ -41,33 +54,71 @@ public class ListFragment extends Fragment {
         eryanghuatan_tv=(TextView)view.findViewById(R.id.eryanghuatan_tv);
         huanshi_tv=(TextView)view.findViewById(R.id.huanshi_tv);
         guangzhao_tv=(TextView)view.findViewById(R.id.guangzhao_tv);
+//Intent intent=Intent.getIntent()
+       // final String weatherId = getIntent().getStringExtra("weather_id");
 
         LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
         listRecyclerView.setLayoutManager(layoutManager);
-        DataAdapter adapter=new DataAdapter(getData());
-        listRecyclerView.setAdapter(adapter);
-        return view;}
-    private List<DataNow> getData(){
-        List<DataNow> dataNowList=new ArrayList<>();
-        for(int i=1;i<50;i++){
-            DataNow dataNow=new DataNow();
 
-            dataNow.setPicture(R.mipmap.wenshi);
-            dataNowList.add(dataNow);
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            String userID = bundle.getString("userID");
+            DataAdapter adapter=new DataAdapter(getData(userID));
+            listRecyclerView.setAdapter(adapter);
         }
-        return dataNowList;
+        //Intent intent=new Intent();
+        //String userId=intent.getStringExtra("user_id");
+
+
+        return view;
+        }
+   private List<Datashow> getData(String userId){
+       List<Datashow> datashows=new ArrayList<>();
+       //String userId="2016212050048";
+       userGroupList=DataSupport.where("userId=?",userId).find(UserGroup.class);
+       if(userGroupList.size()>0){
+           for(UserGroup userGroup:userGroupList){
+               String greenhouseId=userGroup.getGreenhouseId().toString();
+               dataNowList=DataSupport.where("greenhouseId=? and chuanganqiId=? and isnew=?",greenhouseId,"1","1").find(DataNow.class);
+               if(dataNowList.size()>0){
+                   Datashow datashow=new Datashow();
+                   datashow.setGreenhouseId(greenhouseId);
+                   for(DataNow dataNow:dataNowList){
+                       if(dataNow.dataname.equals("环温")){
+                       datashow.setHuanwen(dataNow.shuju);}else if(dataNow.dataname.equals("环湿")){
+                           datashow.setHuanshi(dataNow.shuju);
+                       }else if(dataNow.dataname.equals("光照")){
+                           datashow.setGuangzhao(dataNow.shuju);
+                       }else  if(dataNow.dataname.equals("二氧化碳")){
+                           datashow.setEryanghuatan(dataNow.shuju);
+                       }else if (dataNow.dataname.equals("土温")){
+                           datashow.setTuwen(dataNow.shuju);
+                       }else if(dataNow.dataname.equals("土湿")){
+                           datashow.setTushi(dataNow.shuju);
+                       }
+                       datashow.setIsnew(dataNow.isnew());
+                       datashow.setUpdatetime(dataNow.getUpdatetime());
+                       datashow.setPicture(R.mipmap.wenshi);
+                   }
+                   datashow.setUserId(userId);
+                   datashows.add(datashow);
+                   List<Datashow> datashowList=datashows;
+               }
+           }
+       }
+        return datashows;
     }
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-       /* if (getActivity().findViewById(R.id.content_layout) != null) {
+        if (getActivity().findViewById(R.id.content_layout) != null) {
             isTwoPane = true;
         } else {
             isTwoPane = false;
-        }*/
+        }
     }
     class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder>{
-        private List<DataNow> mDataList;
+        private List<Datashow> mDataList;
         class ViewHolder extends RecyclerView.ViewHolder{
             TextView HuanWenText;
             TextView HuanShiText;
@@ -85,8 +136,8 @@ public class ListFragment extends Fragment {
                 PictureText=(ImageView)view.findViewById(R.id.picture_img);
             }
         }
-        public DataAdapter(List<DataNow> dataNowList){
-            mDataList=dataNowList;
+        public DataAdapter(List<Datashow> datashowList){
+            mDataList=datashowList;
         }
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent,int viewType){
@@ -95,22 +146,28 @@ public class ListFragment extends Fragment {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    DataNow dataNow=mDataList.get(holder.getAdapterPosition());
-                   /* if(isTwoPane){
+                    Datashow dataShow=mDataList.get(holder.getAdapterPosition());
+                    if(isTwoPane){
                         ContentFragment contentFragment=(ContentFragment)getFragmentManager().findFragmentById(R.id.content_fragment);
-                        contentFragment.refresh(dataNow.getHuanwen(),dataNow.getHuanshi(),dataNow.getGuangzhao(),dataNow.getEryanghuatan(),dataNow.getTuwen(),dataNow.getTushi());
+                        contentFragment.refresh(dataShow);
                     }
                     else {
-                        ContentActivity.actionStart(getActivity(),dataNow.getHuanwen(),dataNow.getHuanshi(),dataNow.getGuangzhao(),dataNow.getEryanghuatan(),dataNow.getTuwen(),dataNow.getTushi());
-                    }*/
+                        ContentActivity.actionStart(getActivity(),dataShow);
+                   }
                 }
             });
             return holder;
         }
         @Override
         public void onBindViewHolder(ViewHolder holder,int position){
-            DataNow dataNow=mDataList.get(position);
-            holder.PictureText.setImageResource(dataNow.getPicture());
+            Datashow datashow=mDataList.get(position);
+
+                holder.HuanWenText.setText(datashow.getHuanwen());
+                holder.HuanShiText.setText(datashow.getHuanshi());
+                holder.GuangZhaoText.setText(datashow.getGuangzhao());
+                holder.ErYangHuaTanText.setText(datashow.getEryanghuatan());
+            holder.PictureText.setImageResource(datashow.getPicture());
+            holder.NumberText.setText(datashow.getGreenhouseId());
         }
         @Override
         public int getItemCount(){

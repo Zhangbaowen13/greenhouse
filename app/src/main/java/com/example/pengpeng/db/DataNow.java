@@ -9,63 +9,46 @@ import java.security.Timestamp;
  */
 
 public class DataNow extends DataSupport {
-    private int huanwenId;
-    private int huanshiId;
-    private int guangzhaoId;
-    private int eryanghuatanId;
-    private int tuwenId;
-    private int tushiId;
+    private String chuanganqiId;
+    public String shuju;
+    public String dataname;
+    private String updatetime;
     private int id;
-    private int greenhouseId;
+    private String greenhouseId;
     private int picture;
     private boolean isnew;
 
-    public int getHuanwenId() {
-        return huanwenId;
+
+    public String getUpdatetime() {
+        return updatetime;
     }
 
-    public void setHuanwenId(int huanwenId) {
-        this.huanwenId = huanwenId;
+    public void setUpdatetime(String updatetime) {
+        this.updatetime = updatetime;
     }
 
-    public int getHuanshiId() {
-        return huanshiId;
+    public String getChuanganqiId() {
+        return chuanganqiId;
     }
 
-    public void setHuanshiId(int huanshiId) {
-        this.huanshiId = huanshiId;
+    public void setChuanganqiId(String chuanganqiId) {
+        this.chuanganqiId = chuanganqiId;
     }
 
-    public int getGuangzhaoId() {
-        return guangzhaoId;
+    public String getDataname() {
+        return dataname;
     }
 
-    public void setGuangzhaoId(int guangzhaoId) {
-        this.guangzhaoId = guangzhaoId;
+    public void setDataname(String dataname) {
+        this.dataname = dataname;
     }
 
-    public int getEryanghuatanId() {
-        return eryanghuatanId;
+    public String getShuju() {
+        return shuju;
     }
 
-    public void setEryanghuatanId(int eryanghuatanId) {
-        this.eryanghuatanId = eryanghuatanId;
-    }
-
-    public int getTuwenId() {
-        return tuwenId;
-    }
-
-    public void setTuwenId(int tuwenId) {
-        this.tuwenId = tuwenId;
-    }
-
-    public int getTushiId() {
-        return tushiId;
-    }
-
-    public void setTushiId(int tushiId) {
-        this.tushiId = tushiId;
+    public void setShuju(String shuju) {
+        this.shuju = shuju;
     }
 
     public boolean isnew() {
@@ -76,11 +59,11 @@ public class DataNow extends DataSupport {
         this.isnew = isnew;
     }
 
-    public int getGreenhouseId() {
+    public String getGreenhouseId() {
         return greenhouseId;
     }
 
-    public void setGreenhouseId(int greenhouseId) {
+    public void setGreenhouseId(String greenhouseId) {
         this.greenhouseId = greenhouseId;
     }
 

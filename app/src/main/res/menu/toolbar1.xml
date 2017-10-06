@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<item android:id="@+id/zhuanyeban" android:title="专业版"
-    android:icon="@mipmap/shift"/>
-    <item android:id="@+id/jiandanban" android:title="简单版"
-        android:icon="@mipmap/shift"/>
     <item android:id="@+id/back" android:title="返回" app:showAsAction="always"/>
 </menu>

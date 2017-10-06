@@ -31,7 +31,14 @@
         <activity android:name=".Login_titleActivity" />
         <activity android:name=".util.GreenhouselistActivity" />
         <activity android:name=".GreenhouselistActivity" />
-        <activity android:name=".UserManagerActivity"></activity>
+        <activity android:name=".UserManagerActivity" />
+        <activity android:name=".DataManagerActivity" />
+        <activity android:name=".ContentActivity" />
+        <activity android:name=".ShebeiManagerActivity" />
+        <activity android:name=".PersonalActivity" />
+        <activity android:name=".GreenhouseActivity" />
+        <activity android:name=".ZhuanyeManagerActivity" />
+        <activity android:name=".ListManageActivity"></activity>
     </application>
 
 </manifest>

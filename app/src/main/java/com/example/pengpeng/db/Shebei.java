@@ -10,7 +10,7 @@ public class Shebei extends DataSupport {
     private String shebeiName;
     private int id;
     private boolean isopen;
-    private int greenhouseId;
+    private String greenhouseId;
 
 
     public String getShebeiName() {
@@ -21,11 +21,11 @@ public class Shebei extends DataSupport {
         this.shebeiName = shebeiName;
     }
 
-    public int getGreenhouseId() {
+    public String getGreenhouseId() {
         return greenhouseId;
     }
 
-    public void setGreenhouseId(int greenhouseId) {
+    public void setGreenhouseId(String greenhouseId) {
         this.greenhouseId = greenhouseId;
     }
 

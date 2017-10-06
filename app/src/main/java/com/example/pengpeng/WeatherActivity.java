@@ -49,6 +49,7 @@ public class WeatherActivity extends AppCompatActivity {
     public SwipeRefreshLayout swipeRefresh;
     public DrawerLayout drawerLayout;
     public Button navButton;
+    private Button back_Button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +78,7 @@ public class WeatherActivity extends AppCompatActivity {
         sportText=(TextView)findViewById(R.id.sport_text);
         drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
         navButton=(Button)findViewById(R.id.nav_button);
+        back_Button=(Button)findViewById(R.id.back_button);
 
         navButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +87,19 @@ public class WeatherActivity extends AppCompatActivity {
             }
         });
 
+        back_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String dizhi=getIntent().getStringExtra("dizhi");
+                if(dizhi.equals("GreenhouselistActivity")){
+                    String userID=getIntent().getStringExtra("user_id");
+                    Intent intent=new Intent(WeatherActivity.this,GreenhouselistActivity.class);
+                    intent.putExtra("user_id",userID);
+                    startActivity(intent);
+                    finish();}else if(dizhi.equals("ContentActivity")){
+                    finish();
+            }}
+        });
         swipeRefresh=(SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);

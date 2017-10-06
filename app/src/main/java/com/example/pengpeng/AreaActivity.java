@@ -20,8 +20,12 @@ public class AreaActivity extends AppCompatActivity {
       if(weatherString!=null){
             Weather weather= Utility.handleWeatherResponse(weatherString);
             String huancunId=weather.basic.weatherId;
+          String userID=getIntent().getStringExtra("user_id");
+          String dizhi=getIntent().getStringExtra("dizhi");
             Intent intent=new Intent(this,WeatherActivity.class);
+            intent.putExtra("dizhi",dizhi);
             intent.putExtra("weather_id",huancunId);
+            intent.putExtra("user_id",userID);
             startActivity(intent);
             finish();
         }

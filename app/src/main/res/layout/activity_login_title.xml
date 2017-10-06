@@ -33,6 +33,17 @@
                 android:id="@+id/usermanage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <Button
+                android:text="专业管理"
+                android:id="@+id/zhuanyemanage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:text="数据管理"
+                android:id="@+id/shujumanage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
     <TextView
         android:text="温室名称："
         android:layout_width="wrap_content"

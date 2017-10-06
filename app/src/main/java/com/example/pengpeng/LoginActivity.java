@@ -53,8 +53,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(LoginActivity.this,Login_titleActivity.class);
+                String userID=userId.getText().toString();
+                List<User> users1= DataSupport.where("xuehao=?",userID).find(User.class);
+                for(User user:users1){
+                intent.putExtra("user_id",userID);
                 startActivity(intent);
-                finish();
+                finish();}
             }
         });
         login.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                     String passWord=password_et.getText().toString();
                     List<User> users1= DataSupport.where("xuehao=?",userID).find(User.class);
                     List<User> users2= DataSupport.where("phone=?",userID).find(User.class);
-                    Intent intent = new Intent(LoginActivity.this, AreaActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, GreenhouselistActivity.class);
                     if(users1.size()==0&&users2.size()==0){
                         Toast.makeText(LoginActivity.this,"该用户不存在",Toast.LENGTH_SHORT).show();
                     }else if (users1!=null){
@@ -80,9 +84,10 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putBoolean("remember_password",true);
                                     editor.putString("account",userID);
                                     editor.putString("password",passWord);
+                                    intent.putExtra("user_id",userID);
+                                    startActivity(intent);
+                                    finish();
                                 }else {editor.clear();}editor.apply();
-                                startActivity(intent);
-                                finish();
                             }
                             else {
                                 Toast.makeText(LoginActivity.this,"密码不正确",Toast.LENGTH_SHORT).show();
@@ -99,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putString("account",userID);
                                     editor.putString("password",passWord);
                                 }else {editor.clear();}editor.apply();
+                                intent.putExtra("user_id",userID);
                                 startActivity(intent);
                                 finish();
                             }

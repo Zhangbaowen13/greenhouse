@@ -24,6 +24,8 @@ public class Login_titleActivity extends AppCompatActivity {
     Button delete_Button;
     Button require_Button;
     Button usermanage_Button;
+    Button zhuanyemanage_Button;
+    Button shujumanage;
     EditText greenhouseName_EditText;
     EditText greenhouseNumb_EditText;
     EditText greenhouseProvince_EdiText;
@@ -48,7 +50,26 @@ public class Login_titleActivity extends AppCompatActivity {
         update_Button=(Button)findViewById(R.id.update_button);
         addData_Button=(Button)findViewById(R.id.add_data);
         usermanage_Button=(Button)findViewById(R.id.usermanage);
+        zhuanyemanage_Button=(Button)findViewById(R.id.zhuanyemanage);
+        shujumanage=(Button)findViewById(R.id.shujumanage);
 
+        shujumanage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Login_titleActivity.this,DataManagerActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        zhuanyemanage_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Login_titleActivity.this,ZhuanyeManagerActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         usermanage_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,17 +142,5 @@ public class Login_titleActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.toolbar,menu);
         return true;
     }
-     @Override
-   public boolean onOptionsItemSelected(MenuItem item) {
-       switch (item.getItemId()){
-            case R.id.zhuce:
-                Toast.makeText(this,"注册",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.aaa:
-                Toast.makeText(this,"aaa",Toast.LENGTH_SHORT).show();
-                break;
-            default:
-        }
-        return true;
-    }
+
 }

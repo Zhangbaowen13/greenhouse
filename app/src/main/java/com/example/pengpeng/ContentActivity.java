@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -26,6 +28,7 @@ public class ContentActivity extends AppCompatActivity {
     Handler handler=new Handler();
     private DrawerLayout mDrawerLayout;
     private SwipeRefreshLayout swipeRefresh;
+    FragmentManager fm;
     public static void actionStart(Context context, Datashow datashow)
     {
         Intent intent=new Intent(context,ContentActivity.class);
@@ -49,6 +52,16 @@ public class ContentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
+        //向fragment传值
+        fm = getSupportFragmentManager();
+        FragmentTransaction shiwu = fm.beginTransaction();
+        String Greenhouseid=getIntent().getStringExtra("Greenhouse_Id");
+        Bundle bundle = new Bundle();
+        bundle.putString("greenhouseID",Greenhouseid);
+        ContentFragment contentFragment = new ContentFragment();
+        contentFragment.setArguments(bundle);
+        shiwu.replace(R.id.content_Framelayout, contentFragment);
+        shiwu.commit();
         //下拉刷新
         swipeRefresh=(SwipeRefreshLayout)findViewById(R.id.swipe_refresh_Content);
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
@@ -133,7 +146,7 @@ public class ContentActivity extends AppCompatActivity {
         String Eryanghuatan=getIntent().getStringExtra("ErYang_HuaTan");
         String Tuwen=getIntent().getStringExtra("Tu_Wen");
         String Tushi=getIntent().getStringExtra("Tu_Shi");
-        String Greenhouseid=getIntent().getStringExtra("Greenhouse_Id");
+        String Greenhouseid1=getIntent().getStringExtra("Greenhouse_Id");
         String Picture=getIntent().getStringExtra("Picture");
         String userId=getIntent().getStringExtra("user_id");
         try {
@@ -152,13 +165,13 @@ public class ContentActivity extends AppCompatActivity {
         datashow.setEryanghuatan(Eryanghuatan);
         datashow.setTuwen(Tuwen);
         datashow.setTushi(Tushi);
-        datashow.setGreenhouseId(Greenhouseid);
+        datashow.setGreenhouseId(Greenhouseid1);
         datashow.setIsnew(isnew);
         datashow.setUpdatetime(Updatetime);
         datashow.setUserId(userId);
 
-        ContentFragment contentFragment=(ContentFragment)getSupportFragmentManager().findFragmentById(R.id.content_fragment);
-        contentFragment.refresh(datashow);
+        ContentFragment contentFragment1=(ContentFragment)getSupportFragmentManager().findFragmentById(R.id.content_fragment);
+        contentFragment1.refresh(datashow);
     }
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.toolbar,menu);

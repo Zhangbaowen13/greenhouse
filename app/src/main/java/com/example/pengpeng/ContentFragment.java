@@ -31,13 +31,17 @@ public class ContentFragment extends Fragment {
         RecyclerView recyclerView=(RecyclerView)view.findViewById(R.id.shebei_recycler_view);
         StaggeredGridLayoutManager layoutManager=new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        ShebeiAdapter adapter=new ShebeiAdapter(getSheBei());
-        recyclerView.setAdapter(adapter);
+
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            String greenhouseID = bundle.getString("greenhouseID");
+        ShebeiAdapter adapter=new ShebeiAdapter(getSheBei(greenhouseID));
+        recyclerView.setAdapter(adapter);}
         return view;
     }
-    private List<Shebei> getSheBei(){
+    private List<Shebei> getSheBei(String greenhouseid){
         List<Shebei> sheBeiList=new ArrayList<>();
-        String greenhouseid="1";
+        //String greenhouseid="1";
         List<Shebei> shebeis= DataSupport.where("greenhouseId=?",greenhouseid).find(Shebei.class);
         if(shebeis.size()>0){
             return shebeis;

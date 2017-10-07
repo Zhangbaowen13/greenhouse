@@ -25,11 +25,20 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_refresh_Content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <FrameLayout
+                android:id="@+id/content_Framelayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
         <fragment
             android:id="@+id/content_fragment"
             android:name="com.example.pengpeng.ContentFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"/></FrameLayout>
+            </android.support.v4.widget.SwipeRefreshLayout>
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab"
                 android:layout_width="wrap_content"

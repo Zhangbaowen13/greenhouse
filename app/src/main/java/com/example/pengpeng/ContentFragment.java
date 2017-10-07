@@ -8,9 +8,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.pengpeng.db.DataNow;
 import com.example.pengpeng.db.Datashow;
 import com.example.pengpeng.db.Shebei;
 
@@ -35,8 +38,33 @@ public class ContentFragment extends Fragment {
         Bundle bundle = getArguments();
         if (bundle != null) {
             String greenhouseID = bundle.getString("greenhouseID");
+            String userId = bundle.getString("userID");
         ShebeiAdapter adapter=new ShebeiAdapter(getSheBei(greenhouseID));
-        recyclerView.setAdapter(adapter);}
+        recyclerView.setAdapter(adapter);
+
+           List<DataNow> dataNowList=DataSupport.where("greenhouseId=? and chuanganqiId=? and isnew=?",greenhouseID,"1","1").find(DataNow.class);
+            if(dataNowList.size()>0){
+                Datashow datashow=new Datashow();
+                datashow.setGreenhouseId(greenhouseID);
+                for(DataNow dataNow:dataNowList){
+                    if(dataNow.dataname.equals("环温")){
+                        datashow.setHuanwen(dataNow.shuju);}else if(dataNow.dataname.equals("环湿")){
+                        datashow.setHuanshi(dataNow.shuju);
+                    }else if(dataNow.dataname.equals("光照")){
+                        datashow.setGuangzhao(dataNow.shuju);
+                    }else  if(dataNow.dataname.equals("二氧化碳")){
+                        datashow.setEryanghuatan(dataNow.shuju);
+                    }else if (dataNow.dataname.equals("土温")){
+                        datashow.setTuwen(dataNow.shuju);
+                    }else if(dataNow.dataname.equals("土湿")){
+                        datashow.setTushi(dataNow.shuju);
+                    }
+                    datashow.setIsnew(dataNow.isnew());
+                    datashow.setUpdatetime(dataNow.getUpdatetime());
+                    datashow.setPicture(R.mipmap.wenshi);
+                }
+                datashow.setUserId(userId);
+            refresh(datashow);}}
         return view;
     }
     private List<Shebei> getSheBei(String greenhouseid){
@@ -61,6 +89,18 @@ public class ContentFragment extends Fragment {
                 super(view);
                 OpenSW=(Switch)view.findViewById(R.id.shebei_sw);
                 NameTV=(TextView)view.findViewById(R.id.shebei_name);
+
+                OpenSW.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        Bundle bundle = getArguments();
+                        if (bundle != null) {
+                            String greenhouseID = bundle.getString("greenhouseID");
+                        if(isChecked){
+                            Toast.makeText(getContext(),"温室："+greenhouseID+"打开",Toast.LENGTH_SHORT).show();
+                        }else {Toast.makeText(getContext(),"关闭",Toast.LENGTH_SHORT).show();}}
+                    }
+                });
             }
         }
         public ShebeiAdapter(List<Shebei>ShebeiList){mShebeiList=ShebeiList;}
@@ -93,7 +133,7 @@ public class ContentFragment extends Fragment {
     }
     public void refresh(Datashow datashow){
 
-        View visibilityLayout=view.findViewById(R.id.visibility_layout);
+        //View visibilityLayout=view.findViewById(R.id.visibility_layout);
 
         TextView HuanWenText=(TextView)view.findViewById(R.id.huanwen_tv);
         TextView HuanShiText=(TextView)view.findViewById(R.id.huanshi_tv);

@@ -55,9 +55,11 @@ public class ContentActivity extends AppCompatActivity {
         //向fragment传值
         fm = getSupportFragmentManager();
         FragmentTransaction shiwu = fm.beginTransaction();
+        String userId=getIntent().getStringExtra("user_id");
         String Greenhouseid=getIntent().getStringExtra("Greenhouse_Id");
         Bundle bundle = new Bundle();
         bundle.putString("greenhouseID",Greenhouseid);
+        bundle.putString("userID",userId);
         ContentFragment contentFragment = new ContentFragment();
         contentFragment.setArguments(bundle);
         shiwu.replace(R.id.content_Framelayout, contentFragment);
@@ -148,7 +150,7 @@ public class ContentActivity extends AppCompatActivity {
         String Tushi=getIntent().getStringExtra("Tu_Shi");
         String Greenhouseid1=getIntent().getStringExtra("Greenhouse_Id");
         String Picture=getIntent().getStringExtra("Picture");
-        String userId=getIntent().getStringExtra("user_id");
+        //String userId=getIntent().getStringExtra("user_id");
         try {
             int picture = Integer.parseInt(Picture);
             datashow.setPicture(picture);

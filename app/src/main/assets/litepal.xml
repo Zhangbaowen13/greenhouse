@@ -1,6 +1,6 @@
 <litepal>
     <dbname value="geeenhouse"/>
-    <version value="12"/>
+    <version value="13"/>
     <list>
         <mapping class="com.example.pengpeng.db.City"/>
         <mapping class="com.example.pengpeng.db.Province"/>

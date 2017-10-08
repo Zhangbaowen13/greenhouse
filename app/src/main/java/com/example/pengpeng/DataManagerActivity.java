@@ -52,7 +52,7 @@ private EditText chuanganqiId_EditText;
                 dataNow.setUpdatetime(str);
                 dataNow.setGreenhouseId(greenhouseId);
                 dataNow.setPicture(R.mipmap.wenshi);
-                dataNow.setIsnew(isnew);
+                dataNow.setIsnew(isNew);
                 dataNow.save();
             }
         });

@@ -82,7 +82,7 @@ public class ListManageFragment extends Fragment {
         if(userGroupList.size()>0){
             for(UserGroup userGroup:userGroupList){
                 String greenhouseId=userGroup.getGreenhouseId().toString();
-                dataNowList=DataSupport.where("greenhouseId=? and chuanganqiId=? and isnew=?",greenhouseId,"1","1").find(DataNow.class);
+                dataNowList=DataSupport.where("greenhouseId=? and chuanganqiId=? and isnew=?",greenhouseId,"1","true").find(DataNow.class);
                 if(dataNowList.size()>0){
                     Datashow datashow=new Datashow();
                     datashow.setGreenhouseId(greenhouseId);
@@ -99,7 +99,7 @@ public class ListManageFragment extends Fragment {
                         }else if(dataNow.dataname.equals("土湿")){
                             datashow.setTushi(dataNow.shuju);
                         }
-                        datashow.setIsnew(dataNow.isnew());
+                        datashow.setIsnew(dataNow.getIsnew());
                         datashow.setUpdatetime(dataNow.getUpdatetime());
                         datashow.setPicture(R.mipmap.wenshi);
                     }

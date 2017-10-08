@@ -16,7 +16,7 @@ public class Datashow extends DataSupport {
     private String greenhouseId;
     private String userId;
     private int picture;
-    private boolean isnew;
+    private String isnew;
     private String updatetime;
 
     public String getUserId() {
@@ -27,12 +27,12 @@ public class Datashow extends DataSupport {
         this.userId = userId;
     }
 
-    public void setIsnew(boolean isnew) {
-        this.isnew = isnew;
+    public String getIsnew() {
+        return isnew;
     }
 
-    public boolean isnew() {
-        return isnew;
+    public void setIsnew(String isnew) {
+        this.isnew = isnew;
     }
 
     public void setUpdatetime(String updatetime) {

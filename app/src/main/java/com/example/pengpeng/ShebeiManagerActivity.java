@@ -32,10 +32,10 @@ private EditText ShebeiName_EditText;
                 String shebeiName=ShebeiName_EditText.getText().toString();
                 String greenhouseId=Greenhouseid_EditText.getText().toString();
                 boolean isOpen=isopen_Checkbox.isChecked();
-
+                String IsOpen=String.valueOf(isOpen);
                 shebei.setShebeiName(shebeiName);
                 shebei.setGreenhouseId(greenhouseId);
-                shebei.setIsopen(isOpen);
+                shebei.setIsopen(IsOpen);
                 shebei.save();
             }
         });

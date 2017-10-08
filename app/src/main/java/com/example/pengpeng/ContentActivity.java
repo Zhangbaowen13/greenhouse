@@ -42,7 +42,7 @@ public class ContentActivity extends AppCompatActivity {
         intent.putExtra("user_id",datashow.getUserId());
         String picture=String.valueOf(datashow.getPicture());
         intent.putExtra("Picture",picture);
-        String isnew=String.valueOf(datashow.isnew());
+        String isnew=String.valueOf(datashow.getIsnew());
         intent.putExtra("IsNew",isnew);
         intent.putExtra("UpdateTime",datashow.getUpdatetime());
         context.startActivity(intent);
@@ -168,7 +168,7 @@ public class ContentActivity extends AppCompatActivity {
         datashow.setTuwen(Tuwen);
         datashow.setTushi(Tushi);
         datashow.setGreenhouseId(Greenhouseid1);
-        datashow.setIsnew(isnew);
+        datashow.setIsnew(Isnew);
         datashow.setUpdatetime(Updatetime);
         datashow.setUserId(userId);
 

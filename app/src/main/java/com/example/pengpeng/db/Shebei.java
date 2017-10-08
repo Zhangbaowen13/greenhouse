@@ -9,7 +9,7 @@ import org.litepal.crud.DataSupport;
 public class Shebei extends DataSupport {
     private String shebeiName;
     private int id;
-    private boolean isopen;
+    private String isopen;
     private String greenhouseId;
 
 
@@ -37,7 +37,11 @@ public class Shebei extends DataSupport {
         this.id = id;
     }
 
-    public boolean isopen() {return isopen;}
+    public String getIsopen() {
+        return isopen;
+    }
 
-    public void setIsopen(boolean isopen) {this.isopen = isopen;}
+    public void setIsopen(String isopen) {
+        this.isopen = isopen;
+    }
 }

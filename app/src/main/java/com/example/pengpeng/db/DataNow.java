@@ -16,7 +16,7 @@ public class DataNow extends DataSupport {
     private int id;
     private String greenhouseId;
     private int picture;
-    private boolean isnew;
+    private String isnew;
 
 
     public String getUpdatetime() {
@@ -51,11 +51,11 @@ public class DataNow extends DataSupport {
         this.shuju = shuju;
     }
 
-    public boolean isnew() {
+    public String getIsnew() {
         return isnew;
     }
 
-    public void setIsnew(boolean isnew) {
+    public void setIsnew(String isnew) {
         this.isnew = isnew;
     }
 

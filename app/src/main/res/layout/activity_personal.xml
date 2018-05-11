@@ -120,9 +120,8 @@
                     android:layout_height="wrap_content" />
                 <Spinner
                     android:id="@+id/xueyuan_spinner"
-                    android:background="#00A5A0"
-                    android:popupBackground="#00A5A0"
-                    android:spinnerMode="dropdown"
+                    android:spinnerMode="dialog"
+                    android:background="#fff"
                     android:layout_width="0dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"/>
@@ -141,8 +140,8 @@
                     android:layout_height="wrap_content" />
                 <Spinner
                     android:id="@+id/leibie_spinner"
-                    android:background="#00A5A0"
-                    android:popupBackground="#00A5A0"
+                    android:spinnerMode="dialog"
+                    android:background="#fff"
                     android:layout_width="0dp"
                     android:layout_height="25dp"
                     android:layout_weight="1">
@@ -162,8 +161,8 @@
                     android:layout_height="wrap_content" />
                 <Spinner
                     android:id="@+id/zhuanye_spinner"
-                    android:background="#00A5A0"
-                    android:popupBackground="#00A5A0"
+                    android:spinnerMode="dialog"
+                    android:background="#fff"
                     android:layout_width="0dp"
                     android:layout_height="25dp"
                     android:layout_weight="1">
@@ -209,7 +208,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:src="@mipmap/password"
+        android:src="@mipmap/ic_passwordchange"
         app:layout_anchor="@id/appBar"
         app:layout_anchorGravity="bottom|end"/>
 </android.support.design.widget.CoordinatorLayout>

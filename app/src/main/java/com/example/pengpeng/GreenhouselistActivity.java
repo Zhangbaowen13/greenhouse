@@ -33,7 +33,6 @@ private DrawerLayout mDrawerLayout;
         //向fragment传值
         fm = getSupportFragmentManager();
         FragmentTransaction shiwu = fm.beginTransaction();
-
         String userID=getIntent().getStringExtra("user_id");
         Bundle bundle = new Bundle();
         bundle.putString("userID",userID);
@@ -59,7 +58,7 @@ private DrawerLayout mDrawerLayout;
             actionBar.setHomeAsUpIndicator(R.mipmap.person);
         }
         //navView.setCheckedItem(R.id.nav_call);
-        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+       navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){

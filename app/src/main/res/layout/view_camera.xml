@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp">
+    <ImageView
+        android:id="@+id/greenhouse_photo_Img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerInside"
+        android:background="#2222"
+        android:cropToPadding="true"/>
+    <ImageButton
+        android:id="@+id/camera_Imgbt"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_addphone"
+        android:layout_marginLeft="16dp"
+        />
+</LinearLayout>

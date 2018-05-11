@@ -18,7 +18,6 @@ public class DataNow extends DataSupport {
     private int picture;
     private String isnew;
 
-
     public String getUpdatetime() {
         return updatetime;
     }

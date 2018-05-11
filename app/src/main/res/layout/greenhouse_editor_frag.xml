@@ -15,6 +15,7 @@
             android:id="@+id/greenhouseid_tv"
             android:paddingLeft="3dp"
             android:textSize="20sp"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="25dp"/>
     </LinearLayout>

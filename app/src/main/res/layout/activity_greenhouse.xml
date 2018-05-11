@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:src="@mipmap/password"
+        android:src="@mipmap/ic_add1"
         app:layout_anchor="@id/appBar"
         app:layout_anchorGravity="bottom|end"/>
     </android.support.design.widget.CoordinatorLayout>

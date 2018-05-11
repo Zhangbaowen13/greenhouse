@@ -15,9 +15,6 @@ public class Greenhouse extends DataSupport {
     private String countyName;
     private String xiangxiaddress;
 
-
-
-
     public String getGreenhouseName() {
         return greenhouseName;
     }

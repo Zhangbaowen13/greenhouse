@@ -6,6 +6,7 @@
     android:layout_margin="15dp">
 <TextView
     android:id="@+id/date_text"
+    android:text="日期"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
@@ -13,6 +14,7 @@
     android:textColor="#fff"/>
     <TextView
         android:id="@+id/info_text"
+        android:text="情况"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
@@ -21,6 +23,7 @@
         android:textColor="#fff"/>
     <TextView
         android:id="@+id/max_text"
+        android:text="最高温度"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -29,6 +32,7 @@
         android:textColor="#fff"/>
     <TextView
         android:id="@+id/min_text"
+        android:text="最低温度"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

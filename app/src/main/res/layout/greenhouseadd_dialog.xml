@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:paddingTop="10dp"
+        android:id="@+id/zhuanjiaxitong_LinearLayout">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp">
+            <TextView
+                android:text="环境因素："
+                android:textSize="17sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Spinner
+                android:id="@+id/yinsu_spinner"
+                android:background="#fff"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:layout_margin="5dp">
+            <TextView
+                android:text="上        限："
+                android:textSize="17sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_weight="1">
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:textSize="17sp"
+                    android:minWidth="110dp"
+                    android:maxLines="1"
+                    android:inputType="number"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center"
+        android:layout_margin="5dp">
+        <TextView
+            android:text="下        限："
+            android:textSize="17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_weight="1">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:textSize="17sp"
+                android:minWidth="110dp"
+                android:maxLines="1"
+                android:inputType="number"/>
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>

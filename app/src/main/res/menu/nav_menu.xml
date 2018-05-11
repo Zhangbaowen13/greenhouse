@@ -11,13 +11,15 @@
         android:icon="@mipmap/person"/>
     <item
         android:id="@+id/nav_greenhouse"
-        android:title="温室设置" />
+        android:title="温室设置"
+        android:icon="@mipmap/greenhousetubiao"/>
     <item
         android:id="@+id/nav_shift"
         android:title="切换账号"
         android:icon="@mipmap/password"/>
     <item
         android:id="@+id/nav_exit"
-        android:title="退        出"/>
+        android:title="退        出"
+        android:icon="@mipmap/exit"/>
 </group>
 </menu>

@@ -26,6 +26,8 @@ public class Login_titleActivity extends AppCompatActivity {
     Button usermanage_Button;
     Button zhuanyemanage_Button;
     Button shujumanage;
+    Button zhuanjiaxit;
+    Button Shebei_Button;
     EditText greenhouseName_EditText;
     EditText greenhouseNumb_EditText;
     EditText greenhouseProvince_EdiText;
@@ -39,6 +41,7 @@ public class Login_titleActivity extends AppCompatActivity {
         Toolbar toolbar=(Toolbar)findViewById(R.id.login_toolbar);
         setSupportActionBar(toolbar);
 
+        zhuanjiaxit=(Button)findViewById(R.id.zhuanjisxitong);
         greenhouseName_EditText=(EditText)findViewById(R.id.greenhouse_name);
         greenhouseNumb_EditText=(EditText)findViewById(R.id.greenhouse_numb);
         greenhouseProvince_EdiText=(EditText)findViewById(R.id.greenhouse_province);
@@ -52,6 +55,25 @@ public class Login_titleActivity extends AppCompatActivity {
         usermanage_Button=(Button)findViewById(R.id.usermanage);
         zhuanyemanage_Button=(Button)findViewById(R.id.zhuanyemanage);
         shujumanage=(Button)findViewById(R.id.shujumanage);
+        Shebei_Button=(Button) findViewById(R.id.shebeimanage);
+
+        Shebei_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Login_titleActivity.this,ShebeiManagerActivity.class);
+                startActivity(intent);
+                finish();
+                                             }
+        }
+        );
+        zhuanjiaxit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Login_titleActivity.this,ZhuanjiaManageActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         shujumanage.setOnClickListener(new View.OnClickListener() {
             @Override

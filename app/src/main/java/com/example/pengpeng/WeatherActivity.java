@@ -55,11 +55,11 @@ public class WeatherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //设置系统状态栏背景色为透明！！
-        if(Build.VERSION.SDK_INT>=21){
+        /*if(Build.VERSION.SDK_INT>=21){
             View decorView=getWindow().getDecorView();
             decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
+        }*/
 
 
         setContentView(R.layout.activity_weather);
@@ -97,8 +97,15 @@ public class WeatherActivity extends AppCompatActivity {
                     intent.putExtra("user_id",userID);
                     startActivity(intent);
                     finish();}else if(dizhi.equals("ContentActivity")){
-                    finish();
-            }}
+                    finish();} else if(dizhi.equals("Greenhouselist2Activity")){
+                    String userID=getIntent().getStringExtra("user_id");
+                    String greenhouseid=getIntent().getStringExtra("Greenhouse_Id");
+                    Intent intent=new Intent(WeatherActivity.this,Greenhouselist2Activity.class);
+                    intent.putExtra("user_id",userID);
+                    intent.putExtra("Greenhouse_Id",greenhouseid);
+                    startActivity(intent);
+                    finish();}
+            }
         });
         swipeRefresh=(SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);

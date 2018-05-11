@@ -5,6 +5,7 @@
     android:layout_margin="15dp">
 <TextView
     android:id="@+id/degree_text"
+    android:text="气温℃"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="end"
@@ -12,6 +13,7 @@
     android:textSize="60sp"/>
     <TextView
         android:id="@+id/weather_info_text"
+        android:text="情况"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"

@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.pengpeng.db.DataNow;
+import com.example.pengpeng.db.Datatype;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -18,7 +19,7 @@ private EditText chuanganqiId_EditText;
     private EditText shuju_EditText;
     private  EditText greenhouseId_EditText;
     private CheckBox isNew_Checkbox;
-
+    private Button addType_Button;
     private Button addData_Button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,16 @@ private EditText chuanganqiId_EditText;
         greenhouseId_EditText=(EditText)findViewById(R.id.greenhouseid_et);
         isNew_Checkbox=(CheckBox)findViewById(R.id.isnew_cb);
         addData_Button=(Button)findViewById(R.id.add_data);
-
+        addType_Button=(Button)findViewById(R.id.add_type);
+        addType_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Datatype datatype=new Datatype();
+                String dataName=dataNaeme_EditText.getText().toString();
+                datatype.setDataname(dataName);
+                datatype.save();
+            }
+        });
         addData_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

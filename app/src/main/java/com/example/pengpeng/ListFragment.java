@@ -2,10 +2,13 @@ package com.example.pengpeng;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +44,9 @@ public class ListFragment extends Fragment {
     private List<DataNow>dataNowList;
     private List<Datashow> datashows;
     private List<String> dataList=new ArrayList<>();
+    private SharedPreferences pref;
+    private UserGroup userGroup;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle saveInstanceState){
@@ -59,16 +65,37 @@ public class ListFragment extends Fragment {
 
         LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
         listRecyclerView.setLayoutManager(layoutManager);
-
+        pref= PreferenceManager.getDefaultSharedPreferences(getContext());
         Bundle bundle = getArguments();
-        if (bundle != null) {
+       if (bundle != null) {
             String userID = bundle.getString("userID");
             DataAdapter adapter=new DataAdapter(getData(userID));
             listRecyclerView.setAdapter(adapter);
-        }
+
+       }else{
+           DataAdapter adapter=new DataAdapter(getData("2016212050048"));
+           listRecyclerView.setAdapter(adapter);
+
+         /*  List<Datashow> datashows=new ArrayList<>();
+           Datashow datashow=new Datashow();
+           datashow.setHuanwen("23.1");
+           datashow.setHuanshi("79.2");
+           datashow.setGuangzhao("1.2");
+           datashow.setEryanghuatan("30.2");
+           datashow.setTuwen("15.4");
+           datashow.setTushi("22.5");
+           datashow.setGreenhouseId("1");
+           datashow.setUserId("2016212050048");
+           datashow.setPicture(R.mipmap.wenshi);
+           datashow.setIsnew("true");
+           datashow.setUpdatetime("2017-10-01 14:06:47");
+           datashows.add(datashow);
+
+           DataAdapter adapter=new DataAdapter(datashows);
+           listRecyclerView.setAdapter(adapter);*/
+       }
         //Intent intent=new Intent();
         //String userId=intent.getStringExtra("user_id");
-
 
         return view;
         }
@@ -105,10 +132,13 @@ public class ListFragment extends Fragment {
                    List<Datashow> datashowList=datashows;
                }
            }
+
+
        }
         return datashows;
     }
-    @Override
+
+/*    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (getActivity().findViewById(R.id.content_layout) != null) {
@@ -116,7 +146,7 @@ public class ListFragment extends Fragment {
         } else {
             isTwoPane = false;
         }
-    }
+    }*/
     class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder>{
         private List<Datashow> mDataList;
         class ViewHolder extends RecyclerView.ViewHolder{
@@ -147,7 +177,12 @@ public class ListFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Datashow dataShow=mDataList.get(holder.getAdapterPosition());
-                    if(isTwoPane){
+                    //获取屏幕分辨率
+
+                    DisplayMetrics dm = getResources().getDisplayMetrics();
+                    int screenWidth = dm.widthPixels;
+                    int screenHeight = dm.heightPixels;
+                    if(screenWidth>=900){
                         ContentFragment contentFragment=(ContentFragment)getFragmentManager().findFragmentById(R.id.content_fragment);
                         contentFragment.refresh(dataShow);
                     }

@@ -75,6 +75,13 @@ public class GreenhouseActivity extends AppCompatActivity {
                     intent.putExtra("user_id",userID);
                     startActivity(intent);
                     finish();}else if(dizhi.equals("ContentActivity")){
+                    finish();} else if(dizhi.equals("Greenhouselist2Activity")){
+                    String userID=getIntent().getStringExtra("user_id");
+                    String greenhouseid=getIntent().getStringExtra("Greenhouse_Id");
+                    Intent intent=new Intent(GreenhouseActivity.this,Greenhouselist2Activity.class);
+                    intent.putExtra("user_id",userID);
+                    intent.putExtra("Greenhouse_Id",greenhouseid);
+                    startActivity(intent);
                     finish();}
             default:
         }

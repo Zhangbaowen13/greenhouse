@@ -1,6 +1,6 @@
 <litepal>
     <dbname value="geeenhouse"/>
-    <version value="13"/>
+    <version value="16"/>
     <list>
         <mapping class="com.example.pengpeng.db.City"/>
         <mapping class="com.example.pengpeng.db.Province"/>
@@ -12,5 +12,8 @@
         <mapping class="com.example.pengpeng.db.UserGroup"/>
         <mapping class="com.example.pengpeng.db.Xueyuan"/>
         <mapping class="com.example.pengpeng.db.Zhuanye"/>
+        <mapping class="com.example.pengpeng.db.Zhuanjiaxitong"/>
+        <mapping class="com.example.pengpeng.db.Zuowu"/>
+        <mapping class="com.example.pengpeng.db.Datatype"/>
     </list>
 </litepal>

@@ -46,11 +46,19 @@
                 android:layout_marginTop="10dp"
                 >
                 <fragment
-                    android:id="@+id/list_fragment"
+                    android:id="@+id/editor_fragment"
                     android:name="com.example.pengpeng.GreenhouseEditorFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/></FrameLayout>
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addshebei_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@mipmap/ic_add1"
+        app:layout_anchor="@id/appBar"
+        app:layout_anchorGravity="bottom|end"/>
 </android.support.design.widget.CoordinatorLayout>

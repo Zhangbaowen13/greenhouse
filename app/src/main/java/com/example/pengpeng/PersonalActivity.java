@@ -98,7 +98,7 @@ private TextView account_tv;
                 dataList.add(xueyuan.getXueyuan());
             }
         }
-        adapter=new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_dropdown_item,dataList);
+        adapter=new ArrayAdapter<String>(getContext(),R.layout.spinner_text_style,dataList);
         xueyuan_spinner.setAdapter(adapter);
         xueyuan_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -118,7 +118,7 @@ private TextView account_tv;
         final List<String> dataList2=new ArrayList<>();
         dataList2.add("专硕");
         dataList2.add("学硕");
-        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_dropdown_item,dataList2);
+        ArrayAdapter<String> adapter2=new ArrayAdapter<String>(getContext(),R.layout.spinner_text_style,dataList2);
         leibie_spinner.setAdapter(adapter2);
         leibie_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -168,7 +168,7 @@ private TextView account_tv;
                 dataList1.add(zhuanye.getZhuanye());
             }
         }
-        ArrayAdapter<String> adapter1=new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_dropdown_item,dataList1);
+        ArrayAdapter<String> adapter1=new ArrayAdapter<String>(getContext(),R.layout.spinner_text_style,dataList1);
         zhuanye_spinner.setAdapter(adapter1);
         zhuanye_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -222,16 +222,7 @@ private TextView account_tv;
         String dizhi=getIntent().getStringExtra("dizhi");
 
         switch(item.getItemId()){
-            case R.id.back:
-                if(dizhi.equals("GreenhouselistActivity")){
-                Intent intent=new Intent(PersonalActivity.this,GreenhouselistActivity.class);
-                    String userID=getIntent().getStringExtra("user_id");
-                    intent.putExtra("user_id",userID);
-                startActivity(intent);
-                finish();}else if(dizhi.equals("ContentActivity")){
-                finish();
-            }
-                break;
+
             case android.R.id.home:
                 if(dizhi.equals("GreenhouselistActivity")){
                     Intent intent=new Intent(PersonalActivity.this,GreenhouselistActivity.class);
@@ -239,6 +230,13 @@ private TextView account_tv;
                     intent.putExtra("user_id",userID);
                     startActivity(intent);
                     finish();}else if(dizhi.equals("ContentActivity")){
+                    finish();}else if(dizhi.equals("Greenhouselist2Activity")){
+                    String userID=getIntent().getStringExtra("user_id");
+                    String greenhouseid=getIntent().getStringExtra("Greenhouse_Id");
+                    Intent intent=new Intent(PersonalActivity.this,Greenhouselist2Activity.class);
+                    intent.putExtra("user_id",userID);
+                    intent.putExtra("Greenhouse_Id",greenhouseid);
+                    startActivity(intent);
                     finish();}
             default:
         }

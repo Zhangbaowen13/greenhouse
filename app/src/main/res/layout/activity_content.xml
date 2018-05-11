@@ -51,7 +51,7 @@
                 app:elevation="6dp"
                 android:textDirection="firstStrong"
                 android:textAlignment="center"
-                android:src="@mipmap/shift"
+                android:src="@mipmap/ic_zhuanjiaxitong"
                 android:scaleType="fitXY"
                 />
         </android.support.design.widget.CoordinatorLayout>

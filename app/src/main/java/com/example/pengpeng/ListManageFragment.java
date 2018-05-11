@@ -195,7 +195,13 @@ public class ListManageFragment extends Fragment {
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(getContext(),"编辑",Toast.LENGTH_SHORT).show();
+                            List<UserGroup> userGroupList=DataSupport.where("userId=? and greenhouseId=?",userid,greenhouseId).find(UserGroup.class);
+                            if(userGroupList.size()>0){
+                                for(UserGroup userGroup:userGroupList){
+                                    String usergroupid=String.valueOf(userGroup.getId());
+                            Intent intent =new Intent(getContext(),GreenhouseEditorActivity.class);
+                            intent.putExtra("UserGroup_Id",usergroupid);
+                                    startActivity(intent);}}
                         }
                     });
             normalDialog.setNegativeButton("删除",

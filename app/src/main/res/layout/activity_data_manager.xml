@@ -70,6 +70,11 @@
                 android:text="添加数据"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/add_type"
+                android:text="添加类型"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
             </LinearLayout>
     </ScrollView>
 </LinearLayout>

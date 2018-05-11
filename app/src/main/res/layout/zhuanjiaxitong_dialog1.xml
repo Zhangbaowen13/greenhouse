@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:paddingTop="10dp"
+    android:id="@+id/zhuanjiaxitong1_LinearLayout">
+    <LinearLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/zuowu_tv"
+        android:paddingLeft="3dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="10dp"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="220dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/shiqi_tv"
+            android:paddingLeft="3dp"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+<LinearLayout
+android:orientation="horizontal"
+android:layout_width="220dp"
+android:layout_height="wrap_content"
+android:layout_gravity="center"
+android:layout_margin="5dp">
+<TextView
+    android:text="环       温："
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/huanwenMin_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
+            android:textSize="17sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="℃"
+            android:textColor="#000"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <TextView
+    android:text="至"
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+<TextView
+    android:id="@+id/huanwenMax_tv"
+    android:textSize="17sp"
+    android:maxLines="1"
+    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp"
+  />
+        <TextView
+            android:text="℃"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+</LinearLayout>
+</LinearLayout>
+<LinearLayout
+android:orientation="horizontal"
+android:layout_width="220dp"
+android:layout_height="wrap_content"
+android:layout_gravity="center"
+android:layout_margin="5dp">
+<TextView
+    android:text="环       湿："
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+<TextView
+    android:id="@+id/huanshiMin_tv"
+    android:textSize="17sp"
+    android:maxLines="1"
+    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp" />
+        <TextView
+            android:text="％"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" /></LinearLayout>
+<TextView
+    android:text="至"
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+<TextView
+    android:id="@+id/huanshiMax_tv"
+    android:textSize="17sp"
+    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp" />
+    <TextView
+        android:text="％"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" /></LinearLayout>
+</LinearLayout>
+<LinearLayout
+android:orientation="horizontal"
+android:layout_width="220dp"
+android:layout_height="wrap_content"
+android:layout_gravity="center"
+android:layout_margin="5dp">
+<TextView
+    android:text="光       照："
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+<TextView
+    android:id="@+id/guangzhaoMin_tv"
+    android:textSize="17sp"
+    android:maxLines="1"
+    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp"
+  />
+        <TextView
+            android:text="KLux"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+<TextView
+    android:text="至"
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+<TextView
+    android:id="@+id/guangzhaoMax_tv"
+    android:textSize="17sp"
+    android:maxLines="1"
+    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp"
+/>
+        <TextView
+            android:text="KLux"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
+<LinearLayout
+android:orientation="horizontal"
+android:layout_width="220dp"
+android:layout_height="wrap_content"
+android:layout_gravity="center"
+android:layout_margin="5dp">
+<TextView
+    android:text="二氧化碳："
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+<TextView
+    android:id="@+id/eryanghuaTanMin_tv"
+    android:textSize="17sp"
+    android:maxLines="1"
+    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp" />
+        <TextView
+            android:text="ppm"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+<TextView
+    android:text="至"
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+<TextView
+    android:id="@+id/eryanghuaTanMax_tv"
+    android:textSize="17sp"
+    android:maxLines="1"
+    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp" />
+        <TextView
+            android:text="ppm"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
+<LinearLayout
+android:orientation="horizontal"
+android:layout_width="220dp"
+android:layout_height="wrap_content"
+android:layout_gravity="center"
+android:layout_margin="5dp">
+<TextView
+    android:text="土       温："
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+<TextView
+    android:id="@+id/tuwenMin_tv"
+    android:textSize="17sp"
+    android:maxLines="1"
+    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp" />
+        <TextView
+            android:text="℃"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+<TextView
+    android:text="至"
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+<TextView
+    android:id="@+id/tuwenMax_tv"
+    android:textSize="17sp"
+    android:maxLines="1"
+    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp"
+/>
+        <TextView
+            android:text="℃"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
+<LinearLayout
+android:orientation="horizontal"
+android:layout_width="220dp"
+android:layout_height="wrap_content"
+android:layout_gravity="center"
+android:layout_margin="5dp">
+<TextView
+    android:text="土       湿："
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+<TextView
+    android:id="@+id/tuShiMin_tv"
+    android:textSize="17sp"
+    android:maxLines="1"
+    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp"/>
+        <TextView
+            android:text="％"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+<TextView
+    android:text="至"
+    android:textSize="17sp"
+    android:textColor="#000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        android:gravity="center">
+<TextView
+    android:id="@+id/tuShiMax_tv"
+    android:textSize="17sp"
+    android:maxLines="1"
+    android:paddingLeft="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="25dp" />
+        <TextView
+            android:text="％"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
+    </LinearLayout>

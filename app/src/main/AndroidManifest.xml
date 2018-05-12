@@ -32,18 +32,32 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".Login_titleActivity" />
         <activity android:name=".util.GreenhouselistActivity" />
-        <activity android:name=".GreenhouselistActivity" android:screenOrientation="portrait" />
+        <activity
+            android:name=".GreenhouselistActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".UserManagerActivity" />
-        <activity android:name=".DataManagerActivity"/>
-        <activity android:name=".ContentActivity" android:screenOrientation="portrait" />
+        <activity android:name=".DataManagerActivity" />
+        <activity
+            android:name=".ContentActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".ShebeiManagerActivity" />
-        <activity android:name=".PersonalActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".GreenhouseActivity" android:screenOrientation="portrait" />
+        <activity
+            android:name=".PersonalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GreenhouseActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".ZhuanyeManagerActivity" />
-        <activity android:name=".GreenhouseEditorActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".GreenhouseEditorActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".ZhuanjiaManageActivity" />
         <activity android:name=".zhuanjiabanActivity" />
-        <activity android:name=".Greenhouselist2Activity" android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".Greenhouselist2Activity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".LishishujuDialogActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

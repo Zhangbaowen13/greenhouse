@@ -232,12 +232,6 @@ public class Greenhouselist2Activity extends AppCompatActivity {
                 startActivity(intent);*/
                 finish();
                 break;
-            case R.id.zhuanyeban:
-                Toast.makeText(this,"假装打开了专业版233333~",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.jiandanban:
-                Toast.makeText(this,"这就是简单版啊笨蛋！",Toast.LENGTH_SHORT).show();
-                break;
             case R.id.fangda:
                 String userID=getIntent().getStringExtra("user_id");
 

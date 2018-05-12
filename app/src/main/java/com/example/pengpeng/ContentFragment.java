@@ -26,6 +26,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -90,13 +91,13 @@ public class ContentFragment extends Fragment {
         //view2=inflater.inflate(R.layout.time_choose,(ViewGroup)view.findViewById(choose_time_TP));
         view2=LayoutInflater.from(getActivity()).inflate(R.layout.time_choose,null);
        // View v= LayoutInflater.from(getActivity()).inflate(R.layout.time_choose,null);
-        lishishuju=(Spinner) view.findViewById(R.id.shujuleixing_spinner);
-        lishishujuadapter();
+
         chaxun=(Button)view.findViewById(R.id.lishidata_bt);
         chaxun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),lishishuju.getSelectedItem().toString(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), LishishujuDialogActivity.class);
+                startActivity(intent);
             }
         });
         choose_time_TimePicker=(TimePicker)view2.findViewById(R.id.choose_time_TP);
@@ -107,7 +108,6 @@ public class ContentFragment extends Fragment {
         Minute  = calendar.get(Calendar.MINUTE);
         recyclerView=(RecyclerView)view.findViewById(R.id.shebei_recycler_view);
         shebei_name=(TextView)view.findViewById(R.id.shebei_name);
-        startTime_button=(Button)view.findViewById(R.id.startTime_bt);
         StaggeredGridLayoutManager layoutManager=new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         //获取activity传来的数据
@@ -118,20 +118,6 @@ public class ContentFragment extends Fragment {
             String dizhi = bundle.getString("dizhi");
         ShebeiAdapter adapter=new ShebeiAdapter(getSheBei(greenhouseID));
         recyclerView.setAdapter(adapter);
-
-            //历史数据查询开始时间button
-            startTime_button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    FragmentManager manager=getFragmentManager();
-                    DatePickerFragment dialog=new DatePickerFragment();
-                  //  DatePickerFragment dialog=DatePickerFragment
-                  //         .newInstance(mDatetime.getmDate());
-                    dialog.setTargetFragment(ContentFragment.this,REQUEST_DATE);
-                    dialog.show(manager,DIALOG_DATE);
-                }
-            });
-
            List<DataNow> dataNowList=DataSupport.where("greenhouseId=? and chuanganqiId=? and isnew=?",greenhouseID,"1","true").find(DataNow.class);
             if(dataNowList.size()>0){
                 Datashow datashow=new Datashow();
@@ -381,4 +367,5 @@ public class ContentFragment extends Fragment {
             }
         });
     }
+
 }

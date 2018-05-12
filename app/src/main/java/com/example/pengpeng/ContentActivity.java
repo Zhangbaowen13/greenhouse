@@ -45,6 +45,7 @@ import org.litepal.crud.DataSupport;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.pengpeng.R.id.ycgreenhouseid_tv;
 import static com.example.pengpeng.R.id.zhuanjiaxitong_LinearLayout;
 import static java.security.AccessController.getContext;
 
@@ -123,6 +124,7 @@ public class ContentActivity extends AppCompatActivity {
         FragmentTransaction shiwu = fm.beginTransaction();
         String userId=getIntent().getStringExtra("user_id");
         String Greenhouseid=getIntent().getStringExtra("Greenhouse_Id");
+
         Bundle bundle = new Bundle();
         bundle.putString("greenhouseID",Greenhouseid);
         bundle.putString("userID",userId);
@@ -269,12 +271,7 @@ public class ContentActivity extends AppCompatActivity {
                 startActivity(intent);}
                 finish();
                 break;
-            case R.id.zhuanyeban:
-                Toast.makeText(this,"假装打开了专业版233333~",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.jiandanban:
-                Toast.makeText(this,"这就是简单版啊笨蛋！",Toast.LENGTH_SHORT).show();
-                break;
+
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;

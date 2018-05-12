@@ -1,0 +1,77 @@
+10
+
+dir
+5
+svn://120.24.53.130/android/MPChartLib/src/com/github/mikephil/charting
+svn://120.24.53.130/android
+
+
+
+2016-08-24T08:10:11.859530Z
+5
+admin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+511bb55b-dc2e-4137-be66-a5b695075a3e
+
+
+
+
+
+
+0
+
+animation
+dir
+
+buffer
+dir
+
+charts
+dir
+
+components
+dir
+
+data
+dir
+
+exception
+dir
+
+formatter
+dir
+
+highlight
+dir
+
+interfaces
+dir
+
+jobs
+dir
+
+listener
+dir
+
+matrix
+dir
+
+renderer
+dir
+
+utils
+dir
+

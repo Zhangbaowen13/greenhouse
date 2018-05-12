@@ -3,7 +3,7 @@ package com.example.pengpeng.db;
 import org.litepal.crud.DataSupport;
 
 /**
- * Created by Administrator on 2017/9/28 0028.
+ * Created by Administrator on 2018/5/12 0012.
  */
 
 public class User extends DataSupport {

@@ -1,0 +1,53 @@
+10
+
+dir
+5
+svn://120.24.53.130/android/MPChartLib/res
+svn://120.24.53.130/android
+
+
+
+2016-08-24T08:10:11.859530Z
+5
+admin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+511bb55b-dc2e-4137-be66-a5b695075a3e
+
+
+
+
+
+
+0
+
+drawable-hdpi
+dir
+
+drawable-ldpi
+dir
+
+drawable-mdpi
+dir
+
+drawable-xhdpi
+dir
+
+layout
+dir
+
+values
+dir
+

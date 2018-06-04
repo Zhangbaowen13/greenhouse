@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"/>
         </RadioGroup>
 
-        <ImageView
+        <ImageButton
             android:src="@mipmap/lishishuju1"
             android:adjustViewBounds="true"
             android:layout_below="@id/rg_all"

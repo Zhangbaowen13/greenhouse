@@ -29,6 +29,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ import org.litepal.crud.DataSupport;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.pengpeng.R.id.juli_LinearLayout;
 import static com.example.pengpeng.R.id.ycgreenhouseid_tv;
 import static com.example.pengpeng.R.id.zhuanjiaxitong_LinearLayout;
 import static java.security.AccessController.getContext;
@@ -432,4 +434,5 @@ public class ContentActivity extends AppCompatActivity {
             }
         });
     }
+
 }

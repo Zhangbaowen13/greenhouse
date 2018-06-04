@@ -55,6 +55,7 @@ import java.util.TimeZone;
 
 import static android.content.Context.ALARM_SERVICE;
 //import static com.example.pengpeng.R.id.choose_time_dialog;
+import static com.example.pengpeng.R.id.juli_LinearLayout;
 import static com.example.pengpeng.R.layout.datashow;
 import static org.litepal.LitePalApplication.getContext;
 
@@ -332,8 +333,13 @@ public class ContentFragment extends Fragment {
                         c.set(Calendar.MINUTE, Minute);
                         // ②设置AlarmManager在Calendar对应的时间启动Activity
                         manager.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), sender);
-                        Toast.makeText(getContext(),greenhouseID+"号温室："+shebeiName+"设备"+"已开启", Toast.LENGTH_SHORT).show();
 
+                        if(shebeiName.equals("卷帘机")||shebeiName.equals("卷膜机")){
+                            kaiqijuli(OpenSW,greenhouseID,shebeiName);
+                        }else {
+                             Toast.makeText(getContext(),"抱歉，"+greenhouseID+"号温室："+shebeiName+"设备"+"未连接", Toast.LENGTH_SHORT).show();
+                            OpenSW.setChecked(false);
+                        }
                     }
                 })
                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -342,6 +348,23 @@ public class ContentFragment extends Fragment {
                         OpenSW.setChecked(false);
                     }
                 }).show();
+    }
+    //距离dialog
+    public void kaiqijuli( final Switch OpenSW,final String greenhouseID, final String shebeiName){
+        View view4=LayoutInflater.from(getActivity()).inflate(R.layout.juli_dialog,null);
+        new AlertDialog.Builder(getContext()).setTitle("开启大小：").setView(view4)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getContext(),"抱歉，"+greenhouseID+"号温室："+shebeiName+"设备"+"未连接", Toast.LENGTH_SHORT).show();
+                        OpenSW.setChecked(false);
+                    }
+                }) .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                OpenSW.setChecked(false);
+            }
+        }).show();
     }
     private void lishishujuadapter(){
         //配置历史数据spinner适配器

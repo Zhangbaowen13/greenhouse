@@ -1,23 +1,31 @@
 package com.example.pengpeng;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.pengpeng.db.Zhuanjiaxitong;
+
+import java.util.List;
 
 public class LishishujuDialogActivity extends AppCompatActivity {
 
@@ -25,7 +33,7 @@ public class LishishujuDialogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lishishuju_dialog);
-        final ImageView lishishuju = (ImageView) findViewById(R.id.lc_lishishuju);
+        final ImageButton lishishuju = (ImageButton) findViewById(R.id.lc_lishishuju);
         RadioButton rbHuanwen = (RadioButton) findViewById(R.id.rb_huanwen);
         rbHuanwen.setChecked(true);
         Button shangyiye = (Button) findViewById(R.id.shangye);
@@ -44,6 +52,26 @@ public class LishishujuDialogActivity extends AppCompatActivity {
 
         lishishuju.setMaxWidth(screenWidth * 2/3);
         // lishishuju.setMaxHeight(screenWidth * 5);
+
+        lishishuju.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ycSrc.getText().toString().equals("11")||ycSrc.getText().toString().equals("12")||ycSrc.getText().toString().equals("13")||ycSrc.getText().toString().equals("14")||ycSrc.getText().toString().equals("15")||ycSrc.getText().toString().equals("16")) {
+
+                    xiangxishuju_dialog("1");
+
+                }else if (ycSrc.getText().toString().equals("21")||ycSrc.getText().toString().equals("22")||ycSrc.getText().toString().equals("23")||ycSrc.getText().toString().equals("24")||ycSrc.getText().toString().equals("25")||ycSrc.getText().toString().equals("26")) {
+
+                    xiangxishuju_dialog("2");
+                }else if (ycSrc.getText().toString().equals("31")||ycSrc.getText().toString().equals("32")||ycSrc.getText().toString().equals("33")||ycSrc.getText().toString().equals("34")||ycSrc.getText().toString().equals("35")||ycSrc.getText().toString().equals("36")) {
+
+                    xiangxishuju_dialog("3");
+                }else if (ycSrc.getText().toString().equals("41")||ycSrc.getText().toString().equals("42")||ycSrc.getText().toString().equals("43")||ycSrc.getText().toString().equals("44")||ycSrc.getText().toString().equals("45")||ycSrc.getText().toString().equals("46")) {
+
+                    xiangxishuju_dialog("4");
+                }
+            }
+        });
         shangyiye.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -247,5 +275,26 @@ public class LishishujuDialogActivity extends AppCompatActivity {
         }
         return true;
 
+    }
+    //专家系统对话框
+    private void xiangxishuju_dialog(final String shuju ){
+        LayoutInflater inflater = getLayoutInflater();
+        View v= LayoutInflater.from(LishishujuDialogActivity.this).inflate(R.layout.lishishuju_dialog2,null);
+        ImageView imgshuju=(ImageView)v.findViewById(R.id.xiangxishuju);
+        if(shuju.equals("1")){
+            imgshuju.setImageResource(R.mipmap.huanwenshuju);
+        }else if(shuju.equals("2")){
+            imgshuju.setImageResource(R.mipmap.huanshilishi);
+        }else if(shuju.equals("3")){
+            imgshuju.setImageResource(R.mipmap.guangzhaolishi);
+        }else if(shuju.equals("4")){
+            imgshuju.setImageResource(R.mipmap.eryanghuatanlishi);
+        }
+        new AlertDialog.Builder(LishishujuDialogActivity.this).setTitle("").setView(v)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                }).show();
     }
 }

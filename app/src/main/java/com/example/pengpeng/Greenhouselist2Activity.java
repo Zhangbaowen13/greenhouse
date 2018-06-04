@@ -1,9 +1,12 @@
 package com.example.pengpeng;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -26,12 +29,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.pengpeng.db.DataNow;
 import com.example.pengpeng.db.Datashow;
 import com.example.pengpeng.db.Datatype;
+import com.example.pengpeng.db.Shebei;
 import com.example.pengpeng.db.UserGroup;
 import com.example.pengpeng.db.Zhuanjiaxitong;
 import com.example.pengpeng.db.Zuowu;
@@ -39,6 +45,7 @@ import com.example.pengpeng.db.Zuowu;
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static com.example.pengpeng.R.id.zhuanjiaxitong_LinearLayout;
@@ -77,17 +84,25 @@ public class Greenhouselist2Activity extends AppCompatActivity {
     private Spinner shiqi;
     private Spinner lishishuju;
     private View view4;
+    private TimePicker choose_time_TimePicker;
+    private PendingIntent sender;
     //greenhouselistactivity中声明的
     private DrawerLayout mDrawerLayout;
     FragmentManager fm;
-
+    private int hour;
+    private int Minute;
+    private AlarmManager manager;
     //开始
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_greenhouselist2);
-
+        View view2=LayoutInflater.from(Greenhouselist2Activity.this).inflate(R.layout.time_choose,null);
+        Intent intent = new Intent(Greenhouselist2Activity.this, AlarmCloseShebeiReceiver.class);
+        sender = PendingIntent.getBroadcast(Greenhouselist2Activity.this, 0, intent, 0);
+        choose_time_TimePicker=(TimePicker)view2.findViewById(R.id.choose_time_TP);
+        choose_time_TimePicker.setIs24HourView(true);
         //greenhouselist向fragment传值
 
         //向fragment传值
@@ -422,5 +437,62 @@ public class Greenhouselist2Activity extends AppCompatActivity {
 
             }
         });
-    }}
+    }
+    //专家系统选择对话框
+    private void choose_time(final Switch OpenSW, final String shebeiId, final String greenhouseID, final String shebeiName){
+        LayoutInflater inflater =getLayoutInflater();
+        View view2= LayoutInflater.from(Greenhouselist2Activity.this).inflate(R.layout.time_choose,null);
+
+        new AlertDialog.Builder(this).setTitle("请设置关闭时间：").setView(view2)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Shebei shebei=new Shebei();
+                        shebei.setIsopen("true");
+                        shebei.updateAll("id=?",shebeiId);
+                        Calendar c = Calendar.getInstance();
+                        c.setTimeInMillis(System.currentTimeMillis());
+                        // 根据用户选择的时间来设置Calendar对象
+                        if (Build.VERSION.SDK_INT >= 23 )
+                        {hour=choose_time_TimePicker.getHour();}
+                        else {hour=choose_time_TimePicker.getCurrentHour(); }
+                        if(Build.VERSION.SDK_INT >= 23 )
+                        {Minute=choose_time_TimePicker.getMinute();}
+                        else {Minute=choose_time_TimePicker.getCurrentMinute(); }
+                        c.set(Calendar.HOUR, hour);
+                        c.set(Calendar.MINUTE, Minute);
+                        // ②设置AlarmManager在Calendar对应的时间启动Activity
+                        manager.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), sender);
+
+                        if(shebeiName.equals("卷帘机")||shebeiName.equals("卷膜机")){
+                            kaiqijuli(OpenSW,greenhouseID,shebeiName);
+                        }else {
+                            Toast.makeText(Greenhouselist2Activity.this,greenhouseID+"号温室："+shebeiName+"设备"+"已开启", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        OpenSW.setChecked(false);
+                    }
+                }).show();
+    }
+    //距离dialog
+    public void kaiqijuli( final Switch OpenSW,final String greenhouseID, final String shebeiName){
+        View view4=LayoutInflater.from(Greenhouselist2Activity.this).inflate(R.layout.juli_dialog,null);
+        new AlertDialog.Builder(Greenhouselist2Activity.this).setTitle("开启大小：").setView(view4)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(Greenhouselist2Activity.this,greenhouseID+"号温室："+shebeiName+"设备"+"已开启", Toast.LENGTH_SHORT).show();
+                    }
+                }) .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                OpenSW.setChecked(false);
+            }
+        }).show();
+    }
+}
 
